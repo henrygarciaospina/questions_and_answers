@@ -23,3 +23,9 @@ group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
 end
+
+group :development do
+  gem 'hirb'
+  gem 'interactive_editor'
+  gem 'awesome_print'
+end

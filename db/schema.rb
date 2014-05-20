@@ -11,9 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140520220705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "questions", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "view_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "like_count"
+  end
+
+  add_index "questions", ["title"], name: "index_questions_on_title", using: :btree
 
 end
