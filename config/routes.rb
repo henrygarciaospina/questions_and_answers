@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "home#about"
+  root "questions#index"
 
   get "/about_us"           => "home#about"
   get "/faq"                => "faq#index"
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "/questions"          => "questions#index"
   post "/questions"         => "questions#create"
+  get "/questions/new"      => "questions#new"
   get "/questions/:id"      => "questions#show"
   get "/questions/:id/edit" => "questions#edit"
   match "/questions/:id"    => "questions#update", via: [:put, :patch]

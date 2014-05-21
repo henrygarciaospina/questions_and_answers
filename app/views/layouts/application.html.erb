@@ -7,9 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "about us", about_us_path, id: "about" %> | 
+  <%= link_to "home", root_path, id: "home" %> | 
   <%= link_to "faq", faq_path, id: "faq" %> | 
-  <%= link_to "help", help_path, id: "help" %>
+  <%= link_to "help", help_path, id: "help" %> | 
+  <%= link_to "new", new_question_path, id: "new" %>
+
+  <% if flash[:notice] || flash[:error] %>
+    <h3><%= flash[:notice] || flash[:error] %></h3>
+  <% end %>
 
 
   <%= yield %>
