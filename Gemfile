@@ -18,6 +18,7 @@ end
 
 # custom gems
 gem 'thin'
+gem 'bootstrap-sass', '~> 3.1.1.0'
 
 group :development, :test do
   gem 'debugger'

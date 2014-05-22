@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/help"               => "help#index"
 
   get "/questions"          => "questions#index"
+
   post "/questions"         => "questions#create"
   get "/questions/new"      => "questions#new"
   get "/questions/:id"      => "questions#show"
