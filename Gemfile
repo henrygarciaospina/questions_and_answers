@@ -20,6 +20,8 @@ end
 gem 'thin'
 gem 'bootstrap-sass', '~> 3.1.1.0'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
