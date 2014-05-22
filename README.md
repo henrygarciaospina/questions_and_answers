@@ -2,7 +2,7 @@
   
 Rails is simple, but the knowledge builds up quickly. We're going to
 be going over some projects. In class, we'll be covering a project
-called "Awesome Answers". Please try to follow along with this, as we
+called "[Awesome Answers](http://localhost:3000/)". Please try to follow along with this, as we
 will be continuing from where we left off, on a daily basis.  
   
 There will also be a project for a "Project Management Tool" that will

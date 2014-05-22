@@ -7,9 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Awesome Q & A</a>
+        </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to "home", root_path %></li>
+            <li><%= link_to "new question", new_question_path %></li>
+          </ul>
+          <div>
+            <ul class="nav navbar-nav pull-right">
+            </ul>
+          </div>
+      </div>
+    </div>
   <div class="container">
-    <%= link_to "home", root_path, id: "home" %> | 
-    <%= link_to "new", new_question_path, id: "new" %>
 
     <% if flash[:notice] || flash[:error] %>
       <h3><%= flash[:notice] || flash[:error] %></h3>

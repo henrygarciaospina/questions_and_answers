@@ -1,1 +1,17 @@
 @import "bootstrap";
+
+body {
+  margin-top: 55px;
+}
+.well {
+  margin: 0;
+  height: 300px;
+  overflow: hidden;
+  background-color: #222;
+  color: #666;
+  &:hover {
+    h3 {
+      color: #eee;
+    }
+  }
+}
