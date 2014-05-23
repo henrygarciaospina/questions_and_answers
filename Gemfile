@@ -19,6 +19,7 @@ end
 # custom gems
 gem 'thin'
 gem 'bootstrap-sass', '~> 3.1.1.0'
+gem 'haml-rails'
 
 gem 'rails_12factor', group: :production
 

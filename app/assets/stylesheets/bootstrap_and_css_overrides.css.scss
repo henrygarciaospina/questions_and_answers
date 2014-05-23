@@ -1,9 +1,10 @@
 @import "bootstrap";
+.darkwell {@extend .well;}
 
 body {
   margin-top: 55px;
 }
-.well {
+.darkwell {
   margin: 0;
   height: 300px;
   overflow: hidden;

@@ -1,0 +1,6 @@
+- @questions.each do |question|
+  .darkwell.col-sm-3
+    %p= link_to "show", question
+    %p= formatted_date(question.created_at)
+    %h3= question.title.truncate(25, ommission: '')
+    %p= question.description
