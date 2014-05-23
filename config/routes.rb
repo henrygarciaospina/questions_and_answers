@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   match "/questions/:id"    => "questions#update", via: [:put, :patch]
   delete "/questions/:id"   => "questions#destroy"
 
-  resources :questions do
+  resources :questions, only: [:new, :index, :create, :show, :edit, :destroy] do
+    resources :answers
     member do
       post :vote_up
       post :vote_down
