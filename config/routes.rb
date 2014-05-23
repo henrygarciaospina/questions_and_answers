@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments
+
   root "questions#index"
 
   get "/about_us"           => "home#about"
