@@ -59,7 +59,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = Question.find params[:id]
+    @question = Question.find(params[:question_id] || params[:id])
   end
 
 end

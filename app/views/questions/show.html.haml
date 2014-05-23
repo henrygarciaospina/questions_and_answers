@@ -22,8 +22,5 @@
     = f.submit class: "btn btn-default"
 
 %hr
-- @question.answers.each_with_index do |answer, i|
-  .well.col-sm-3
-    %h3 Answer #{i + 1}
-    %p= answer.body
-    %p= formatted_date(answer.created_at)
+- @question.answers.each do |answer|
+  = render "/answers/answer", answer: answer
