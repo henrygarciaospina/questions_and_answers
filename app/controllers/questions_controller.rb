@@ -58,7 +58,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_attributes
-    params.require(:question).permit([:title, :description, :vote_up, :vote_down])
+    params.require(:question).permit([:title, :description, :vote_up, :vote_down, {category_ids: []}])
   end
 
   def find_question

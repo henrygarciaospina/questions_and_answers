@@ -1,6 +1,8 @@
 class Question < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_one :question_detail
+  has_many :categorizations, dependent: :destroy
+  has_many :categories, through: :categorizations
   belongs_to :user
 
   before_save :capitalize_title

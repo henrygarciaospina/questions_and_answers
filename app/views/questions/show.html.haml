@@ -4,6 +4,9 @@
     %p vote count: #{@question.vote_count}
   - else
     = button_to "Vote Up", vote_up_question_path(@question), class: "btn btn-default"
+  - if @question.categories.present?
+    Categories (#{@question.categories.count})
+    = @question.categories.map(&:title).join(", ")
   %p= @question.description
   %p= formatted_date(@question.created_at)
 
