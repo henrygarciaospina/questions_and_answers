@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: [:show, :edit, :destroy, :update, :vote_up, :vote_down]
+  before_action :find_question, only: [:edit, :destroy, :update, :vote_up, :vote_down]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @questions = Question.all
@@ -10,7 +11,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_attributes)
+    @question = current_user.questions.new(question_attributes)
     if @question.save
       redirect_to questions_path, notice: "Your question was created successfully"
     else
@@ -20,7 +21,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find(params[:question_id] || params[:id])
     @answer = Answer.new
+    @answers = @question.answers
   end
 
   def edit
@@ -60,6 +63,7 @@ class QuestionsController < ApplicationController
 
   def find_question
     @question = Question.find(params[:question_id] || params[:id])
+    redirect_to root_path, alert: "Access denied" unless @question
   end
 
 end

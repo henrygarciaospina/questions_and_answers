@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_one :question_detail
+  belongs_to :user
 
   before_save :capitalize_title
 

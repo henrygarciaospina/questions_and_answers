@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'spring',        group: :development
+gem 'pry', '~> 0.9.12.6'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0', require: false
@@ -20,6 +21,7 @@ end
 gem 'thin'
 gem 'bootstrap-sass', '~> 3.1.1.0'
 gem 'haml-rails'
+gem 'devise'
 
 gem 'rails_12factor', group: :production
 
@@ -29,7 +31,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'better_errors'
+  # gem 'better_errors'
   gem 'binding_of_caller'
   gem 'hirb'
   gem 'interactive_editor'
