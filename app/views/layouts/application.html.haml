@@ -21,7 +21,7 @@
           = link_to "sign in", new_user_session_path, class: "btn btn-default"
 
   .container
-    - if flash[:notice] || flash[:error]
-      %h3= flash[:notice] || flash[:error]
+    - if flash[:notice] || flash[:alert]
+      %h3= flash[:notice] || flash[:alert]
 
     = yield

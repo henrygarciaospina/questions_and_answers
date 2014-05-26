@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :votes
+
   devise_for :views
   devise_for :users
   resources :comments
@@ -18,7 +20,8 @@ Rails.application.routes.draw do
   match "/questions/:id"    => "questions#update", via: [:put, :patch]
   delete "/questions/:id"   => "questions#destroy"
 
-  resources :questions, only: [:new, :index, :create, :show, :edit, :destroy] do
+  resources :questions do
+    resources :votes, only: [:create, :edit, :destroy]
     resources :answers
     member do
       post :vote_up

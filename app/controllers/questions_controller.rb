@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to questions_path, notice: "Your question was created successfully"
     else
-      flash.now[:error] = "Please correct the form"
+      flash.now[:alert] = "Please correct the form"
       render :new
     end
   end
@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:question_id] || params[:id])
     @answer = Answer.new
+    @vote = current_user.vote_for(@question) || Vote.new
     @answers = @question.answers
   end
 
@@ -33,7 +34,7 @@ class QuestionsController < ApplicationController
     if @question.update_attributes(question_attributes)
       redirect_to @question, notice: "Question updated successfully"
     else
-      flash.now[:error] = "Couldn't update"
+      flash.now[:alert] = "Couldn't update"
       render :edit
     end
   end
@@ -42,7 +43,7 @@ class QuestionsController < ApplicationController
     if @question.destroy
       redirect_to questions_path, notice: "Question deleted successfully"
     else
-      redirect_to question_path, error: "Delete question failed"
+      redirect_to question_path, alert: "Delete question failed"
     end
   end
 

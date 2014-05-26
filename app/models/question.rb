@@ -1,9 +1,11 @@
 class Question < ActiveRecord::Base
-  has_many :answers, dependent: :destroy
+  belongs_to :user
   has_one :question_detail
+  has_many :answers, dependent: :destroy
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
-  belongs_to :user
+  has_many :votes, dependent: :destroy
+  has_many :voted_users, through: :votes, source: :user
 
   before_save :capitalize_title
 

@@ -3,12 +3,22 @@
   - if session[:has_voted]
     %p vote count: #{@question.vote_count}
   - else
-    = button_to "Vote Up", vote_up_question_path(@question), class: "btn btn-default"
   - if @question.categories.present?
     Categories (#{@question.categories.count})
     = @question.categories.map(&:title).join(", ")
   %p= @question.description
   %p= formatted_date(@question.created_at)
+
+  - if @vote.persisted?  && @vote.is_up?
+    = button_to "Undo", [@question, @vote], method: :delete, class: "btn btn-default"
+  - else
+    = form_for [@question, @vote] do |f|
+      = f.hidden_field :is_up, value: true
+      = f.submit "Vote Up", class: "btn btn-default"
+
+  /= form_for [@question, @vote] do |f|
+  /  = f.hidden_field :is_up, value: false
+  /  = f.submit "Vote Down", class: "btn btn-default"
 
   %p
     = link_to "edit", edit_question_path
