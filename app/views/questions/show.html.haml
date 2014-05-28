@@ -8,7 +8,14 @@
     = @question.categories.map(&:title).join(", ")
   %p= @question.description
   %p= formatted_date(@question.created_at)
+  - if @favorite
+    %p= link_to "Unfavorite", question_favorite_path(@favorite.question, @favorite), method: :delete, class: "btn btn-danger"
+  - else
+    %p= link_to "Favorite", question_favorites_path(@question), method: :post, class: "btn btn-danger"
 
+  - if @question.favorited_users.present?
+    Favorited by:
+    = @question.favorited_users.map(&:full_name).join(", ")
   - if @vote.persisted?  && @vote.is_up?
     = button_to "Undo", [@question, @vote], method: :delete, class: "btn btn-default"
   - else

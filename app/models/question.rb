@@ -6,6 +6,8 @@ class Question < ActiveRecord::Base
   has_many :categories, through: :categorizations
   has_many :votes, dependent: :destroy
   has_many :voted_users, through: :votes, source: :user
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
 
   before_save :capitalize_title
 

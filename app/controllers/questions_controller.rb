@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: [:edit, :destroy, :update, :vote_up, :vote_down]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @questions = Question.all
@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:question_id] || params[:id])
     @answer = Answer.new
+    @favorite = current_user.favorite_for(@question)
     @vote = current_user.vote_for(@question) || Vote.new
     @answers = @question.answers
   end

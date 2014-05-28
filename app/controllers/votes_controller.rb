@@ -33,7 +33,7 @@ class VotesController < ApplicationController
   private
 
   def find_question
-    @question = Question.find(params[question_id])
+    @question = Question.find(params[:question_id])
   end
 
   def vote_params
