@@ -1,6 +1,7 @@
 @import "bootstrap";
 .darkwell {@extend .well;}
 .transparent-navbar {@extend .navbar-inverse;}
+.darkjumbotron {@extend .jumbotron;}
 
 body {
   margin-top: 55px;
@@ -21,6 +22,9 @@ body {
       background-color: rgba(200, 200, 200, 0.9);
       color: #000;
   }
+}
+.darkjumbotron {background-color: rgba(45, 45, 45, 0.9);
+  color: #ddd;
 }
 .transparent-navbar {
   background-color: rbga(45, 45, 45, 0.9);

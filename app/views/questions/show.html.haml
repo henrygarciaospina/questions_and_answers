@@ -1,4 +1,4 @@
-.jumbotron
+.darkjumbotron
   %h1= @question.title
   - if session[:has_voted]
     %p vote count: #{@question.vote_count}
@@ -17,7 +17,7 @@
     Favorited by:
     = @question.favorited_users.map(&:full_name).join(", ")
   - if @vote.persisted?  && @vote.is_up?
-    = button_to "Undo", [@question, @vote], method: :delete, class: "btn btn-default"
+    = button_to "Un-vote", [@question, @vote], method: :delete, class: "btn btn-default"
   - else
     = form_for [@question, @vote] do |f|
       = f.hidden_field :is_up, value: true
