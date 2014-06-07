@@ -26,6 +26,7 @@ gem 'devise'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
+  gem 'faker'
   gem 'better_errors'
   gem 'debugger'
   gem 'rspec-rails'

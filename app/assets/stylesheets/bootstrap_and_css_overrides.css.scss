@@ -2,7 +2,7 @@
 .darkwell {@extend .well;}
 .transparent-navbar {@extend .navbar-inverse;}
 .darkjumbotron {@extend .jumbotron;}
-
+.answer {@extend .darkwell;}
 body {
   margin-top: 55px;
   min-height: 100%;
@@ -14,10 +14,13 @@ body {
 }
 .darkwell {
   margin: 0;
-  height: 300px;
+  min-height: 300px;
+  padding: 5px;
   overflow: hidden;
   background-color: rgba(45, 45, 45, 0.9);
   color: #ddd;
+}
+.answer {
   &:hover {
       background-color: rgba(200, 200, 200, 0.9);
       color: #000;
