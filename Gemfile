@@ -11,6 +11,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'spring',        group: :development
 gem 'pry', '~> 0.9.12.6'
+gem 'jquery-ui-rails'
+gem 'font-awesome-rails'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0', require: false

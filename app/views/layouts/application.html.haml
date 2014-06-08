@@ -13,12 +13,18 @@
         %li= link_to "new question", new_question_path
       %div
         %ul.nav.navbar-nav.pull-right
-      .pull-right
-        - if user_signed_in?
-          = current_user.full_name
-          = link_to "sign out", destroy_user_session_path, method: :delete, class: "btn btn-default"
-        - else
-          = link_to "sign in", new_user_session_path, class: "btn btn-default"
+          %li
+            %i.fa.fa-align-justify.fa-2x{onclick: "wideLayout();"}
+          %li
+            %i.fa.fa-th.selected.fa-2x{onclick: "gridLayOut();"}
+          - if user_signed_in?
+            %li
+              = current_user.full_name
+            %li
+              = link_to "sign out", destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to "sign in", new_user_session_path
 
   .container
     - if flash[:notice] || flash[:alert]
