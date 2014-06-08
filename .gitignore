@@ -17,3 +17,4 @@
 
 # Ignore files with usernames/passwords
 /config/database.yml
+/config/initializers/email_vars.rb
