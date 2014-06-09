@@ -1,13 +1,22 @@
 @import "bootstrap";
 .darkwell {@extend .well;}
-.transparent-navbar {@extend .navbar-inverse;}
+.lightwell {@extend .well;}
+.light-navbar {@extend .navbar;}
 .darkjumbotron {@extend .jumbotron;}
-.answer {@extend .darkwell;}
+.lightjumbotron {@extend .jumbotron;}
+.answer {@extend .lightwell;}
+.navbar-fixed-top {
+  background-color: rgba(200, 200, 200, 0.9);
+}
+.navbar-brand { color: #444; &:hover { color: #999; background-color: rgba(200, 200, 200, 0.9); } }
+.navbar-nav li a { color: #444; &:hover { color: #999; background-color: rgba(200, 200, 200, 0.9); } }
+
 body {
+  background-color: #eee;
   margin-top: 55px;
   min-height: 100%;
   background-attachment: fixed;
-  background-image: url(rocks.jpg);
+  background-image: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/01/Technology-Wallpaper-6.jpg);
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: cover;
@@ -15,16 +24,16 @@ body {
 .fa {
   margin-top: 10px;
   margin-left: 5px;
-  color: #999;
+  color: #ddd;
   &:hover {
-    color: #ddd;
+    color: #999;
   }
 }
 .full-width {
   width: 100%;
 }
 .selected {
-  color: #ddd;
+  color: #999;
 }
 .darkwell {
   margin: 0;
@@ -34,15 +43,31 @@ body {
   background-color: rgba(45, 45, 45, 0.9);
   color: #ddd;
 }
+.lightwell {
+  border: #444 solid 4px;
+  border-radius: 10px;
+  margin: 0;
+  height: 300px;
+  padding: 15px;
+  overflow: hidden;
+  background-color: rgba(200, 200, 200, 0.9);
+  color: #444;
+  &:hover {
+    background-color: #444;
+  }
+}
 .answer {
   &:hover {
-      background-color: rgba(200, 200, 200, 0.9);
-      color: #000;
+      background-color: rgba(45, 45, 45, 0.9);
+      color: #aaa;
   }
 }
 .darkjumbotron {background-color: rgba(45, 45, 45, 0.9);
   color: #ddd;
 }
-.transparent-navbar {
-  background-color: rbga(45, 45, 45, 0.9);
+.lightjumbotron {background-color: rgba(200, 200, 200, 0.9);
+  color: #444;
+}
+.lightnavbar {
+  background-color: rbga(200, 200, 200, 0.9);
 }

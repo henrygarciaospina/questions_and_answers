@@ -17,12 +17,12 @@
 //= require_tree .
 
 var wideLayout = function() {
-  $('.darkwell').addClass("full-width", function() { $(this).removeClass("col-sm-3"); });
+  $('.lightwell').addClass("full-width", function() { $(this).removeClass("col-sm-3"); });
   $('.fa-align-justify').addClass("selected");
   $('.fa-th').removeClass("selected");
 };
 var gridLayOut = function() {
-  $('.darkwell').addClass("col-sm-3", function() {$(this).removeClass("full-width"); });
+  $('.lightwell').addClass("col-sm-3", function() {$(this).removeClass("full-width"); });
   $('.fa-align-justify').removeClass("selected");
   $('.fa-th').addClass("selected");
 };
