@@ -37,10 +37,11 @@
       - @answer.errors.full_messages.each do |message|
         %li message
 
-  = form_for @answer, url: question_answers_path(@question) do |f|
+  = form_for @answer, url: question_answers_path(@question), remote: true do |f|
     = f.text_area :body, class: "form-control"
     = f.submit class: "btn btn-default"
+    %hr
 
-%hr
-- @question.answers.each do |answer|
-  = render "/answers/answer", answer: answer
+.answers
+  - @question.answers.each do |answer|
+    = render "/answers/answer", answer: answer

@@ -3,10 +3,17 @@ class AnswersController < QuestionsController
 
   def create
     @answer = @question.answers.new(answer_attributes)
-    if @answer.save
-      redirect_to @question, notice: "Updated Successfully"
-    else
-      render "/questions/show"
+    @answer.user_id = current_user
+    respond_to do |format|
+      if @answer.save
+        # AnswerMailer.delay.notify_question_owner(@answer)
+        # format.html { redirect_to @question, notice: "Answer created successfully" }
+        format.js { render "create" }
+      else
+        format.html { render "questions/show" }
+        format.json { render js: "alert('ERROR');" }
+        render "/questions/show"
+      end
     end
   end
 
